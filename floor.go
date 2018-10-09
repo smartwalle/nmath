@@ -26,3 +26,8 @@ func Floor(f float64, n int) float64 {
 func Ceil(f float64, n int) float64 {
 	return Floor(f*-1, n) * -1
 }
+
+func Trunc(f float64, n int) float64 {
+	pow10n := math.Pow10(n)
+	return math.Trunc(f*pow10n) / pow10n
+}

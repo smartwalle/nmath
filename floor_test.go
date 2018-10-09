@@ -75,3 +75,28 @@ func TestCeil(t *testing.T) {
 	fmt.Println(math.Ceil(-10.1), Ceil(-10.1, 0))
 	fmt.Println(math.Ceil(-10.9), Ceil(-10.9, 0))
 }
+
+func TestTrunc(t *testing.T) {
+	fmt.Println("===== Trunc =====")
+	var v = 10.119
+	fmt.Println(v, Trunc(v, 2))
+	if Trunc(v, 2) != 10.11 {
+		t.FailNow()
+	}
+
+	v = 10.111
+	fmt.Println(v, Trunc(v, 2))
+	if Trunc(v, 2) != 10.11 {
+		t.FailNow()
+	}
+
+	v = 10.11
+	fmt.Println(v, Trunc(v, 2))
+	if Trunc(v, 2) != 10.11 {
+		t.FailNow()
+	}
+
+	fmt.Println(Trunc(-10.11, 2))
+	fmt.Println(Trunc(-10.111, 2))
+	fmt.Println(Trunc(-10.116, 2))
+}
