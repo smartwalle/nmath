@@ -8,13 +8,13 @@ func Combination(params [][]interface{}) (results [][]interface{}) {
 	results = make([][]interface{}, 0, 0)
 
 	var psLen = len(params)
-	for i:=0; i<pCount; i++ {
+	for i := 0; i < pCount; i++ {
 		var s = make([]interface{}, 0, 0)
 		var temp = i
-		for m:=0; m<psLen; m++ {
+		for m := 0; m < psLen; m++ {
 			var pLen = len(params[m])
 			if (temp / pLen) >= 0 {
-				s = append(s, params[m][temp % pLen])
+				s = append(s, params[m][temp%pLen])
 				temp /= pLen
 			}
 		}
@@ -85,4 +85,4 @@ func Combination(params [][]interface{}) (results [][]interface{}) {
 新数组第三个元素：取自第三个数组，元素下标为（索引值 / 第一个数组的长度 / 第二个数组的长度 % 第三个数组的长度）
 如果还有更多的数组，以此类推。
 
- */
+*/

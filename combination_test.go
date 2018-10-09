@@ -1,8 +1,8 @@
 package math4go
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestCombination(t *testing.T) {
