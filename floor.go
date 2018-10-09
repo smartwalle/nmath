@@ -7,6 +7,9 @@ import (
 // Round 保留 n 位小数，并对小数部分进行四舍五入
 func Round(f float64, n int) float64 {
 	pow10n := math.Pow10(n)
+	if f < 0 {
+		return (math.Trunc((f*-1+0.5/pow10n)*pow10n) / pow10n) * -1
+	}
 	return math.Trunc((f+0.5/pow10n)*pow10n) / pow10n
 }
 

@@ -19,6 +19,11 @@ func TestRound(t *testing.T) {
 	if Round(v, 2) != 10.04 {
 		t.FailNow()
 	}
+
+	fmt.Println(math.Round(-10.9464), Round(-10.9464, 2))
+	fmt.Println(math.Round(-10.9464), Round(-10.9444, 2))
+	fmt.Println(math.Round(-10.9464), Round(-10.9464, 0))
+	fmt.Println(math.Round(-10.4464), Round(-10.4464, 0))
 }
 
 func TestFloor(t *testing.T) {
@@ -42,7 +47,8 @@ func TestFloor(t *testing.T) {
 	}
 
 	fmt.Println(math.Floor(-10.1), Floor(-10.111, 2))
-	fmt.Println(math.Floor(10.1), Floor(10.111, 2))
+	fmt.Println(math.Floor(-10.1), Floor(-10.1, 0))
+	fmt.Println(math.Floor(-10.9), Floor(-10.9, 0))
 }
 
 func TestCeil(t *testing.T) {
@@ -66,5 +72,6 @@ func TestCeil(t *testing.T) {
 	}
 
 	fmt.Println(math.Ceil(-10.1), Ceil(-10.121, 2))
-	fmt.Println(math.Ceil(10.1), Ceil(10.121, 2))
+	fmt.Println(math.Ceil(-10.1), Ceil(-10.1, 0))
+	fmt.Println(math.Ceil(-10.9), Ceil(-10.9, 0))
 }
