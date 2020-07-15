@@ -456,11 +456,36 @@ func TestTrunc2(t *testing.T) {
 
 	for _, tt := range tests {
 		if actual := Trunc(tt.d, tt.n); actual != tt.cr {
-			t.Errorf("Trunc(%f, %d), 期望得到:%f, 实际得到:%f", tt.v, tt.n, tt.cr, actual)
+			t.Errorf("Trunc(%f, %d), 期望得到:%f, 实际得到:%f", tt.d, tt.n, tt.cr, actual)
 		}
 
 		if actual := tt.v - Trunc(tt.d, tt.n); actual != tt.fr {
 			t.Errorf("%f - Trunc(%f, %d), 期望得到:%f, 实际得到:%f", tt.v, tt.d, tt.n, tt.fr, actual)
+		}
+	}
+}
+
+func TestRound2(t *testing.T) {
+	var tests = []struct {
+		n  int     // 保留小数位数
+		v  float64 // 被减数
+		d  float64 // 减数
+		cr float64 // 减数截取指定位数
+		fr float64 // v - cr
+	}{
+		{2, 1, 0.11299050889256458, 0.11, 0.89},
+		{3, 1, 0.11299050889256458, 0.113, 0.887},
+		{4, 1, 0.11299050889256458, 0.1130, 0.8870},
+		{5, 1, 0.11299050889256458, 0.11299, 0.88701},
+		{6, 1, 0.11299050889256458, 0.112991, 0.887009},
+	}
+
+	for _, tt := range tests {
+		if actual := Round(tt.d, tt.n); actual != tt.cr {
+			t.Errorf("Round(%f, %d), 期望得到:%f, 实际得到:%f", tt.d, tt.n, tt.cr, actual)
+		}
+		if actual := tt.v - Round(tt.d, tt.n); actual != tt.fr {
+			t.Errorf("%f - Round(%f, %d), 期望得到:%f, 实际得到:%f", tt.v, tt.d, tt.n, tt.fr, actual)
 		}
 	}
 }
