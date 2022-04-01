@@ -1,3 +1,3 @@
 module github.com/smartwalle/math4go
 
-go 1.12
+go 1.18

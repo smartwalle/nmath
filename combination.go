@@ -60,16 +60,16 @@ package math4go
 // 新数组第二个元素：取自第二个数组，元素下标为（索引值 / 第一个数组的长度 % 第二个数组的长度）
 // 新数组第三个元素：取自第三个数组，元素下标为（索引值 / 第一个数组的长度 / 第二个数组的长度 % 第三个数组的长度）
 // 如果还有更多的数组，以此类推。
-func Combination(params [][]interface{}) (results [][]interface{}) {
+func Combination[T any](params [][]T) (results [][]T) {
 	var pCount = 1
 	for _, p := range params {
 		pCount = pCount * len(p)
 	}
-	results = make([][]interface{}, 0, 0)
+	results = make([][]T, 0, 0)
 
 	var psLen = len(params)
 	for i := 0; i < pCount; i++ {
-		var s = make([]interface{}, 0, 0)
+		var s = make([]T, 0, 0)
 		var temp = i
 		for m := 0; m < psLen; m++ {
 			var pLen = len(params[m])
