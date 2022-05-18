@@ -1,8 +1,7 @@
-package math4go_test
+package nmath_test
 
 import (
-	"fmt"
-	"github.com/smartwalle/math4go"
+	"github.com/smartwalle/nmath"
 	"testing"
 )
 
@@ -15,5 +14,5 @@ func TestCombination(t *testing.T) {
 
 	var p = [][]string{l1, l2, l3}
 
-	fmt.Println(math4go.Combination[string](p))
+	t.Log(nmath.Combination[string](p))
 }

@@ -1,4 +1,4 @@
-package math4go
+package nmath
 
 // Combination 组合
 // 假设存在：

@@ -1,7 +1,7 @@
-package math4go_test
+package nmath_test
 
 import (
-	"github.com/smartwalle/math4go"
+	"github.com/smartwalle/nmath"
 	"testing"
 )
 
@@ -15,7 +15,7 @@ func TestMax(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if actual := math4go.Max(tt.v1, tt.v2); actual != tt.r {
+		if actual := nmath.Max(tt.v1, tt.v2); actual != tt.r {
 			t.Errorf("Max(%d, %d), 期望得到:%d, 实际得到:%d", tt.v1, tt.v2, tt.r, actual)
 		}
 	}
@@ -31,7 +31,7 @@ func TestMin(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if actual := math4go.Min(tt.v1, tt.v2); actual != tt.r {
+		if actual := nmath.Min(tt.v1, tt.v2); actual != tt.r {
 			t.Errorf("Min(%d, %d), 期望得到:%d, 实际得到:%d", tt.v1, tt.v2, tt.r, actual)
 		}
 	}

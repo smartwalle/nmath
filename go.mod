@@ -1,3 +1,3 @@
-module github.com/smartwalle/math4go
+module github.com/smartwalle/nmath
 
 go 1.18

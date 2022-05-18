@@ -1,7 +1,7 @@
-package math4go_test
+package nmath_test
 
 import (
-	"github.com/smartwalle/math4go"
+	"github.com/smartwalle/nmath"
 	"testing"
 )
 
@@ -101,7 +101,7 @@ func TestRound(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if actual := math4go.Round(tt.v, tt.n); actual != tt.r {
+		if actual := nmath.Round(tt.v, tt.n); actual != tt.r {
 			t.Errorf("Round(%f, %d), 期望得到:%f, 实际得到:%f", tt.v, tt.n, tt.r, actual)
 		}
 	}
@@ -203,7 +203,7 @@ func TestFloor(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if actual := math4go.Floor(tt.v, tt.n); actual != tt.r {
+		if actual := nmath.Floor(tt.v, tt.n); actual != tt.r {
 			t.Errorf("Floor(%f, %d), 期望得到:%f, 实际得到:%f", tt.v, tt.n, tt.r, actual)
 		}
 	}
@@ -305,7 +305,7 @@ func TestCeil(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if actual := math4go.Ceil(tt.v, tt.n); actual != tt.r {
+		if actual := nmath.Ceil(tt.v, tt.n); actual != tt.r {
 			t.Errorf("Ceil(%f, %d), 期望得到:%f, 实际得到:%f", tt.v, tt.n, tt.r, actual)
 		}
 	}
@@ -407,7 +407,7 @@ func TestTrunc(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if actual := math4go.Trunc(tt.v, tt.n); actual != tt.r {
+		if actual := nmath.Trunc(tt.v, tt.n); actual != tt.r {
 			t.Errorf("Trunc(%f, %d), 期望得到:%f, 实际得到:%f", tt.v, tt.n, tt.r, actual)
 		}
 	}
@@ -430,11 +430,11 @@ func TestCeilAndFloor(t *testing.T) {
 	for _, tt := range tests {
 		var v = tt.v / tt.d
 
-		if actual := math4go.Ceil(v, tt.n); actual != tt.cr {
+		if actual := nmath.Ceil(v, tt.n); actual != tt.cr {
 			t.Errorf("Ceil(%f, %d), 期望得到:%f, 实际得到:%f", tt.v/tt.d, tt.n, tt.cr, actual)
 		}
 
-		if actual := math4go.Floor(tt.v-v, tt.n); actual != tt.fr {
+		if actual := nmath.Floor(tt.v-v, tt.n); actual != tt.fr {
 			t.Errorf("Floor(%f, %d), 期望得到:%f, 实际得到:%f", tt.v-v, tt.n, tt.fr, actual)
 		}
 	}
@@ -456,11 +456,11 @@ func TestTrunc2(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if actual := math4go.Trunc(tt.d, tt.n); actual != tt.cr {
+		if actual := nmath.Trunc(tt.d, tt.n); actual != tt.cr {
 			t.Errorf("Trunc(%f, %d), 期望得到:%f, 实际得到:%f", tt.d, tt.n, tt.cr, actual)
 		}
 
-		if actual := tt.v - math4go.Trunc(tt.d, tt.n); actual != tt.fr {
+		if actual := tt.v - nmath.Trunc(tt.d, tt.n); actual != tt.fr {
 			t.Errorf("%f - Trunc(%f, %d), 期望得到:%f, 实际得到:%f", tt.v, tt.d, tt.n, tt.fr, actual)
 		}
 	}
@@ -482,10 +482,10 @@ func TestRound2(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		if actual := math4go.Round(tt.d, tt.n); actual != tt.cr {
+		if actual := nmath.Round(tt.d, tt.n); actual != tt.cr {
 			t.Errorf("Round(%f, %d), 期望得到:%f, 实际得到:%f", tt.d, tt.n, tt.cr, actual)
 		}
-		if actual := tt.v - math4go.Round(tt.d, tt.n); actual != tt.fr {
+		if actual := tt.v - nmath.Round(tt.d, tt.n); actual != tt.fr {
 			t.Errorf("%f - Round(%f, %d), 期望得到:%f, 实际得到:%f", tt.v, tt.d, tt.n, tt.fr, actual)
 		}
 	}

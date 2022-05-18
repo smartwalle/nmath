@@ -1,4 +1,4 @@
-package math4go
+package nmath
 
 import (
 	"math"

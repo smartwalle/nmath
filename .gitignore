@@ -14,5 +14,5 @@
 *.out
 
 .idea
-math4go.iml
+*.iml
 .DS_Store
