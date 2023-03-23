@@ -10,7 +10,7 @@ package nmath
 // 数组A、B、C的全排列组合？
 //
 // 解：
-// 分别从每一个数组中取出一个元素，然后组成一个新的数组，根据排列组合可以知道，总共会产生 4*4*2=32 个新的数组组合。
+// 分别从每一个数组中取出一个元素，然后组成一个新的数组，总共会产生 4*4*2=32 个新的数组组合。
 //
 // 可能产生新的数组组合如下：
 //
@@ -60,25 +60,25 @@ package nmath
 // 新数组第二个元素：取自第二个数组，元素下标为（索引值 / 第一个数组的长度 % 第二个数组的长度）
 // 新数组第三个元素：取自第三个数组，元素下标为（索引值 / 第一个数组的长度 / 第二个数组的长度 % 第三个数组的长度）
 // 如果还有更多的数组，以此类推。
-func Combination[T any](params [][]T) (results [][]T) {
-	var pCount = 1
+func Combination[T any](params [][]T) [][]T {
+	// 计算出组合数量
+	var total = 1
 	for _, p := range params {
-		pCount = pCount * len(p)
+		total = total * len(p)
 	}
-	results = make([][]T, 0, 0)
 
-	var psLen = len(params)
-	for i := 0; i < pCount; i++ {
-		var s = make([]T, 0, 0)
-		var temp = i
-		for m := 0; m < psLen; m++ {
+	var nList = make([][]T, 0, total)
+
+	var elementsLen = len(params)
+	for index := 0; index < total; index++ {
+		var elements = make([]T, 0, elementsLen)
+		var temp = index
+		for m := 0; m < elementsLen; m++ {
 			var pLen = len(params[m])
-			if (temp / pLen) >= 0 {
-				s = append(s, params[m][temp%pLen])
-				temp /= pLen
-			}
+			elements = append(elements, params[m][temp%pLen])
+			temp /= pLen
 		}
-		results = append(results, s)
+		nList = append(nList, elements)
 	}
-	return results
+	return nList
 }
